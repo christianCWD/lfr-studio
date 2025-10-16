@@ -21,7 +21,12 @@ export default defineType({
       validation: r => r.min(0)
     }),
 
-    defineField({ name: "pricing", title: "Pris & kilder", type: "pricingConfig" }),
+    defineField({
+  name: "pricing",
+  title: "Pris & kilder",
+  type: "pricingConfig",
+}),
+
     
     defineField({name: 'body', title: 'Tekst', type: 'array', of: [{type: 'block'}]}),
     defineField({name: 'supplier', title: 'Leverandør', type: 'string', initialValue: 'DPA'}),
