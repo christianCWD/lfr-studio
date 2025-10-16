@@ -12,6 +12,15 @@ export default defineType({
     defineField({name: 'stadium', title: 'Stadion', type: 'reference', to: [{type: 'stadium'}]}),
     defineField({name: 'hero', title: 'Hero-billede', type: 'image', options: {hotspot: true}}),
     defineField({name: 'excerpt', title: 'Kort intro', type: 'text'}),
+
+    defineField({
+      name: "fromPrice",
+      title: "Fra-pris (DKK)",
+      type: "number",
+      description: "Pris pr. person (hele kroner). Vises som 'Fra DKK xxx /person'.",
+      validation: r => r.min(0)
+    }),
+    
     defineField({name: 'body', title: 'Tekst', type: 'array', of: [{type: 'block'}]}),
     defineField({name: 'supplier', title: 'Leverandør', type: 'string', initialValue: 'DPA'}),
     defineField({name: 'supplierEventId', title: 'Supplier Event ID', type: 'string', description: 'ID fra DPA', validation: r => r.required()}),
