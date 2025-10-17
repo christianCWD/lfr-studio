@@ -13,7 +13,18 @@ export default defineType({
     defineField({ name: "netPerPerson", title: "Kostpris pr. person (DKK)", type: "number", hidden: true }),
     defineField({ name: "supplierHotelId", title: "Supplier hotel id (valgfri)", type: "string" }),
     defineField({ name: "image", title: "Billede", type: "image", options: {hotspot: true} }),
-    defineField({ name: "badge", title: "Badge (fx 4★ / 4.3)", type: "string" }),
+    defineField({
+  name: "stars",
+  title: "Stjerner (1-5)",
+  type: "number",
+  validation: r => r.min(1).max(5)
+}),
+defineField({
+  name: "reviewScore",
+  title: "Review score (fx 4.3)",
+  type: "number"
+}),
+
     defineField({ name: "included", title: "Tekst under kortet (fx Inkluderet i pakken)", type: "string" }),
   ],
 })

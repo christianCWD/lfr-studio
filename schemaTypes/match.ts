@@ -22,10 +22,23 @@ export default defineType({
     }),
 
     defineField({
-  name: "pricing",
-  title: "Pris & kilder",
-  type: "pricingConfig",
-}),
+      name: "stayFrom",
+      title: "Ophold fra (dato)",
+      type: "date",
+      options: { dateFormat: "YYYY-MM-DD" },
+      description: "Standard check-in (dato uden tid) til pakken.",
+      validation: r => r.required()
+    }),
+    defineField({
+      name: "stayTo",
+      title: "Ophold til (dato)",
+      type: "date",
+      options: { dateFormat: "YYYY-MM-DD" },
+      description: "Standard check-out (dato uden tid) til pakken.",
+      validation: r => r.required()
+    }),
+
+    defineField({ name: "pricing", title: "Pris & kilder", type: "pricingConfig" }),
 
     
     defineField({name: 'body', title: 'Tekst', type: 'array', of: [{type: 'block'}]}),
